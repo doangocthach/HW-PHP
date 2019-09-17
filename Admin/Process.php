@@ -12,6 +12,6 @@ if ($result->num_rows > 0) {
             <td>" . $row["last_name"] . "</td>
             <td>" . $row["email"] . "</td>
             <td>" . $row["registration_date"] . "</td>
-                 </tr>";
+            </tr>";
     }
 }
