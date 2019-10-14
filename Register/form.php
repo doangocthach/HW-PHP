@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../Style/Style.css">
+    <link rel="stylesheet" href="../Style/sb-admin-2.css">
+    <link rel="stylesheet" href="../Style/sb-admin-2.min.css">
     <script type="text/javascript" src="../js/index.js"></script>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <?php
@@ -40,14 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pw = test_input($_POST["pw"]);
         $re_pw = test_input($_POST["re-pw"]);
     }
-    if (strlen($_POST["pw"]) < 8 ||strlen($_POST["re-pw"]) < 8) {
+    if (strlen($_POST["pw"]) < 6 || strlen($_POST["re-pw"]) < 6) {
         $pwErr = "Password must be greater than 6 characters!";
         $re_pwErr = "Re-Password must be greater than 6 characters!";
     }
     if ($_POST["pw"] !== $_POST["re-pw"]) {
         $re_pwErr = "Do not match!";
     }
-    
 }
 
 function test_input($data)
@@ -60,8 +63,8 @@ function test_input($data)
 ?>
 <?php include('Process.php') ?>
 
-<body>
-    <div class="title">
+<body class="bg-gradient-primary">
+    <!-- <div class="title">
         <h2>Register</h2>
     </div>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -93,6 +96,85 @@ function test_input($data)
         <br>
         <span class="error"><?php echo $Err; ?></span><br>
     </form>
+ -->
+
+
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" name="fname" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                                        <span class="errorr"><?php echo $fnameErr; ?></span><br>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="lname" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                                        <span class="errorr"><?php echo $lnameErr; ?></span><br>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                                    <span class="errorr"><?php echo $emailErr; ?></span><br>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" name="pw" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        <span class="errorr"><?php echo $pwErr; ?></span><br>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" name="re-pw" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <span class="errorr"><?php echo $re_pwErr; ?></span><br>
+                                    </div>
+                                </div>
+                                <button href="login.html" name="register" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
+                                <hr>
+                                <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a> -->
+                            </form>
+                            <hr>
+                            <!-- <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div> -->
+                            <div class="text-center">
+                                <a class="small" href="../Login/Login.php">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+
+
 
 </body>
 

@@ -3,7 +3,7 @@
 require("../mysqli_connect.php");
 
 if (isset($_POST["login"])) {
-    $select = "select * from users";
+    $select = "select * from thachusers";
     $result = mysqli_query($conn, $select);
     $check = 1;
     if ($result->num_rows >= 0) {
@@ -16,11 +16,10 @@ if (isset($_POST["login"])) {
                     $conn->close();
                     break;
                 } else if ($row["user_level"] == 1) {
-                    header("Location: ../User/user.php");
+                    header("Location: ../pages/index.php");
                     $conn->close();
                     break;
                 }
-              
             } else {
                 $Err = "Acc not found";
                 continue;

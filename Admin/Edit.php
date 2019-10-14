@@ -1,3 +1,7 @@
+<?php session_start( );
+ if($_SESSION["user"] === null){
+  header("Location: ../Login/login.php");
+ } ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +38,14 @@ function test_input($data)
 
 ?>
 
-<?php $id = $_GET["id"];
-echo $id;
+<?php 
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+// echo $id;
 $_SESSION["id"] = $id;
-echo $_SESSION["id"];
+// echo $_SESSION["id"];
+}
+
 ?>
 
 <body>

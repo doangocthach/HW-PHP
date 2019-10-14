@@ -2,7 +2,7 @@
 require("../mysqli_connect.php");
 $id = $_GET["id"];
 
-$sql = "delete from users where userid = $id ;";
+$sql = "delete from thachusers where userid = $id ;";
 if (mysqli_query($conn, $sql) === true) {
     header("Location: admin.php");
 } else {
